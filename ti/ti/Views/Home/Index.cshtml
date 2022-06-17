@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<body style=" margin-right: 0px; margin-left: 0px; margin-bottom: 0px; margin-top: 3%">
+
+    <div id="buttons" class=" boxx">
+        <button id="s">Wersja standardowa</button>
+        <button id="n">Wersja niebieska</button>
+        <button id="c">Wersja różowa</button>
+        <button id="z">Wersja zielona</button>
+    </div>
+
+    <hr />
+    <div class="side-menu-container">
+        <nav class="side-menu">
+            <a id="do1" href="#sekcja1">
+                <div><i class="fa-solid fa-lightbulb"></i></div>
+            </a>
+            <a id="do2" href="#sekcja3">
+                <div><<i class="fa-solid fa-business-time"></i></div>
+            </a>
+            <a id="do3" href="#sekcja4">
+                <div><i class="fa-solid fa-database"></i></div>
+            </a>
+            <a id="do4" href="#sekcja5">
+                <div><i class="fa-solid fa-divide"></i></div>
+            </a>
+        </nav>
+    </div>
+
+    <div id="sekcja1" class="container_glowny">
+        <h1>Rezerwacja sal w budynkach</h1>
+        <br />
+        <br />
+        <div class="odnosniki">
+            <div class=" ikonka"><a href="~/SalaWynajmujacy"><i class="fa-solid fa-calendar"></i></a>Rezerwacje</div>
+            <div class=" ikonka"><a href="~/Sale"><i class="fa-solid fa-computer"></i></a>Sale</div>
+            <div class=" ikonka"><a href="~/Wynajmujacy"><i class="fa-solid fa-person"></i></a>Wynajmujacy</div>
+            <div class=" ikonka"><a href="~/Budynki"><i class="fa-solid fa-building"></i></a>Budynki</div>
+            <div class=" ikonka"><a href="~/Dokumentacja/Instrukcja.pdf"><i class="fa-solid fa-pen"></i></a>Instrukcja</div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="boxx">
+        <h1 id="dokumentacja1">Dokumentacja oraz instrukcja</h1>
+        <div id="dokumentacja2">
+            <a href="~/Dokumentacja/ti.xml">Link do dokumentacji</a>
+            <a href="~/Dokumentacja/Instrukcja.pdf">Link do instrukcji</a>
+        </div>
+    </div>
+    <hr />
+    <div class="boxx">
+        <h1 id="cel1">Cel projektu</h1>
+        <p id="cel2">Celem projektu jest utworzenie strony internetowej, która umożliwia zarezerwowanie sali w danym budynku przez wynajmującego</p>
+    </div>
+    <hr />
+    <div id="sekcja3" class="boxx">
+        <h1 id="zast1">Zastosowanie biznesowe</h1>
+        <p id="zast2">Aplikacja może przydać się na uczelniach, aby prowadzący w łatwy sposób mógł zarezerwować salę do prowadzenia zajęć. Po niewielkich przekształceniach mogłaby znaleźć zastosowanie również prz rezerwacji pomieszczeń biurowych w korporacjach</p>
+    </div>
+    <hr />
+    <div id="sekcja4" class="boxx">
+        <h1 id="opis1">Opis bazy danych</h1>
+        <p id="opis2">
+            Baza danych składa się z 4 tabeli. Tabela Budynek zawiera informacje o nazwie budynku,
+            łączy się ona relacją 1 do wielu z tabelą sala, która zawiera informacje o numerze sali, ilości miejsc oraz o jej typie (komputerowa, ćwiczeniowa, wykladowa).
+            W bazie jest również tabela Wynajmujący z informacjami o osobie wynajmującej. Sala i Wynajmujący łączą się relacją wiele do wielu, tworząc tabelę Rezerwacja, która zawiera szczegóły tej transakcji (datę i godzinę)
+        </p>
+    </div>
+
+    <hr />
+    <div class="boxx">
+        <h1 id="baza1">Diagram bazy danych</h1>
+        <div id="baza2" class="bd">
+            <img id="bd" src="~/Images/model_baz_danych.png" />
+        </div>
+    </div>
+    <hr />
+    <div id="sekcja5" class="boxx">
+        <h1 id="podzial1">Podział obowiązków</h1>
+        <table id="podzial2">
+            <tr>
+                <th>Osoba</th>
+                <th>Zadania</th>
+            </tr>
+            <tr>
+                <td>Natalia Głodek</td>
+                <td>
+                    <ul>
+                        <li>obsługa relacji wiele do wielu</li>
+                        <li>koordynacja projektu</li>
+                        <li>wykorzystanie atrybutów w klasach np. Display, Key itp.</li>
+                        <li>stworzenie seeda</li>
+                        <li>wykorzystanie HttpStatusCodeResult</li>
+                        <li>stworzenie kontrolerów obsługujących CRUD</li>
+                        <li>stworzenie widoków</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Faustyna Bąk</td>
+                <td>
+                    <ul>
+                        <li>stworzenie bazy danych (wraz z relacją wiele do wielu)</li>
+                        <li>umieszczenie zasobów na stronie</li>
+                        <li>umieszczenie dokumentacji na stronie</li>
+                        <li>instrukcja użytkownika</li>
+                        <li>obsługa błędów</li>
+                        <li>HttpStatusCode.BadRequest</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Dawid Kopeć</td>
+                <td>
+                    <ul>
+                        <li>dokumentacja</li>
+                        <li>stworzenie layoutu</li>
+                        <li>stworzenie strony startowej</li>
+                        <li>wykorzystanie widoków częściowych</li>
+                        <li>wykorzystanie skryptów</li>
+                        <li>estetyka kodu</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+</body>

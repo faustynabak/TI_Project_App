@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TIModelStoreContainer" CdmEntityContainer="TIEntities2">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="TIModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Budyneks">
+      <EntityTypeMapping TypeName="TIModel.Budyneks">
+        <MappingFragment StoreEntitySet="Budyneks">
+          <ScalarProperty Name="BudynekId" ColumnName="BudynekId" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salas">
+      <EntityTypeMapping TypeName="TIModel.Salas">
+        <MappingFragment StoreEntitySet="Salas">
+          <ScalarProperty Name="SalaId" ColumnName="SalaId" />
+          <ScalarProperty Name="BudynekId" ColumnName="BudynekId" />
+          <ScalarProperty Name="Numer" ColumnName="Numer" />
+          <ScalarProperty Name="IloscMiejsca" ColumnName="IloscMiejsca" />
+          <ScalarProperty Name="TypSali" ColumnName="TypSali" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalaWynajmujacies">
+      <EntityTypeMapping TypeName="TIModel.SalaWynajmujacies">
+        <MappingFragment StoreEntitySet="SalaWynajmujacies">
+          <ScalarProperty Name="SalaId" ColumnName="SalaId" />
+          <ScalarProperty Name="WynajmujacyId" ColumnName="WynajmujacyId" />
+          <ScalarProperty Name="DataPoczatkowa" ColumnName="DataPoczatkowa" />
+          <ScalarProperty Name="GodzinaPoczatkowa" ColumnName="GodzinaPoczatkowa" />
+          <ScalarProperty Name="GodzinaKoncowa" ColumnName="GodzinaKoncowa" />
+          <ScalarProperty Name="SalaWynajmujacyId" ColumnName="SalaWynajmujacyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wynajmujacies">
+      <EntityTypeMapping TypeName="TIModel.Wynajmujacies">
+        <MappingFragment StoreEntitySet="Wynajmujacies">
+          <ScalarProperty Name="WynajmujacyId" ColumnName="WynajmujacyId" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="Wydzial" ColumnName="Wydzial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

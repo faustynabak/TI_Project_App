@@ -1,0 +1,55 @@
+﻿<h1>Rezerwacja sal w budynku</h1>
+
+<br />
+
+<h2>Cel projektu</h2>
+<p>Celem projektu jest utworzenie strony internetowej, która umożliwia zarezerwowanie sali w danym budynku przez wynajmującego</p>
+
+<h2>Zastosowanie biznesowe</h2>
+<p>Aplikacja może przydać się na uczelniach, aby prowadzący w łątwy sposób mógł zarezerwować salę do prowadzenia zajęć. Po niewielkich przekształceniach mogłaby znaleźć zastosowanie również prz rezerwacji pomieszczeń biurowych w korporacjach</p>
+
+<h2>Opis bazy danych</h2>
+<p>
+    Baza danych składa się z 4 tabeli. Tabela Budynek zawiera informacje o nazwie budynku,
+    łączy się ona relacją 1 do wielu z tabelą sala, która zawiera informacje o numerze sali, ilości miejsc oraz o jej typie (komputerowa, ćwiczeniowa, wykladowa).
+    W bazie jest również tabela Wynajmujący z informacjami o osobie wynajmującej. Sala i Wynajmujący łączą się relacją wiele do wielu, tworząc tabelę Rezerwacja, która zawiera szczegóły tej transakcji (datę i godzinę)
+</p>
+
+<h2>Diagram bazy danych</h2>
+<img src="~/Images/model_baz_danych.png" />
+
+<h2>Podział obowiązków</h2>
+<table>
+    <tr>
+        <th>Osoba</th>
+        <th>Zadania</th>
+    </tr>
+    <tr>
+        <td>Natalia Głodek</td>
+        <td>
+            <ul>
+                <li>stworzenie bazy danych</li>
+                <li>
+                    wykorzystanie atrybutów w klasach np. Display, Key itp.
+                </li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Faustyna Bąk</td>
+        <td>
+            <ul>
+                <li>stworzenie kontroleli obsługujących CRUD</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Dawid Kopeć</td>
+        <td>
+            <ul>
+                <li>stworzenie widoków</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+

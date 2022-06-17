@@ -1,0 +1,56 @@
+﻿@model ti.Models.DbModels.Sala
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Usuwaie sali</h2>
+
+<h3>Czy na pewno chcesz usunać tę salę?</h3>
+<div>
+    <h4>Sala</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Budynek.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Budynek.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IloscMiejsca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IloscMiejsca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypSali)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypSali)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć do listy", "Index")
+        </div>
+    }
+</div>

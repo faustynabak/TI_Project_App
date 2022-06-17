@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Budyneks">
+          <Key>
+            <PropertyRef Name="BudynekId" />
+          </Key>
+          <Property Name="BudynekId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Salas">
+          <Key>
+            <PropertyRef Name="SalaId" />
+          </Key>
+          <Property Name="SalaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BudynekId" Type="int" />
+          <Property Name="Numer" Type="nvarchar(max)" />
+          <Property Name="IloscMiejsca" Type="int" Nullable="false" />
+          <Property Name="TypSali" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalaWynajmujacies">
+          <Key>
+            <PropertyRef Name="SalaId" />
+            <PropertyRef Name="WynajmujacyId" />
+            <PropertyRef Name="SalaWynajmujacyId" />
+          </Key>
+          <Property Name="SalaId" Type="int" Nullable="false" />
+          <Property Name="WynajmujacyId" Type="int" Nullable="false" />
+          <Property Name="DataPoczatkowa" Type="datetime" Nullable="false" />
+          <Property Name="GodzinaPoczatkowa" Type="time" Precision="7" Nullable="false" />
+          <Property Name="GodzinaKoncowa" Type="time" Precision="7" Nullable="false" />
+          <Property Name="SalaWynajmujacyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wynajmujacies">
+          <Key>
+            <PropertyRef Name="WynajmujacyId" />
+          </Key>
+          <Property Name="WynajmujacyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="nvarchar(max)" />
+          <Property Name="Nazwisko" Type="nvarchar(max)" />
+          <Property Name="Wydzial" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_Salas_dbo_Budyneks_BudynekId">
+          <End Role="Budyneks" Type="Self.Budyneks" Multiplicity="0..1" />
+          <End Role="Salas" Type="Self.Salas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Budyneks">
+              <PropertyRef Name="BudynekId" />
+            </Principal>
+            <Dependent Role="Salas">
+              <PropertyRef Name="BudynekId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SalaWynajmujacies_dbo_Salas_SalaId">
+          <End Role="Salas" Type="Self.Salas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SalaWynajmujacies" Type="Self.SalaWynajmujacies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salas">
+              <PropertyRef Name="SalaId" />
+            </Principal>
+            <Dependent Role="SalaWynajmujacies">
+              <PropertyRef Name="SalaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SalaWynajmujacies_dbo_Wynajmujacies_WynajmujacyId">
+          <End Role="Wynajmujacies" Type="Self.Wynajmujacies" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SalaWynajmujacies" Type="Self.SalaWynajmujacies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wynajmujacies">
+              <PropertyRef Name="WynajmujacyId" />
+            </Principal>
+            <Dependent Role="SalaWynajmujacies">
+              <PropertyRef Name="WynajmujacyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TIModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budyneks" EntityType="Self.Budyneks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salas" EntityType="Self.Salas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaWynajmujacies" EntityType="Self.SalaWynajmujacies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wynajmujacies" EntityType="Self.Wynajmujacies" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Salas_dbo_Budyneks_BudynekId" Association="Self.FK_dbo_Salas_dbo_Budyneks_BudynekId">
+            <End Role="Budyneks" EntitySet="Budyneks" />
+            <End Role="Salas" EntitySet="Salas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SalaWynajmujacies_dbo_Salas_SalaId" Association="Self.FK_dbo_SalaWynajmujacies_dbo_Salas_SalaId">
+            <End Role="Salas" EntitySet="Salas" />
+            <End Role="SalaWynajmujacies" EntitySet="SalaWynajmujacies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SalaWynajmujacies_dbo_Wynajmujacies_WynajmujacyId" Association="Self.FK_dbo_SalaWynajmujacies_dbo_Wynajmujacies_WynajmujacyId">
+            <End Role="Wynajmujacies" EntitySet="Wynajmujacies" />
+            <End Role="SalaWynajmujacies" EntitySet="SalaWynajmujacies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Budyneks">
+          <Key>
+            <PropertyRef Name="BudynekId" />
+          </Key>
+          <Property Name="BudynekId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Salas" Relationship="Self.FK_dbo_Salas_dbo_Budyneks_BudynekId" FromRole="Budyneks" ToRole="Salas" />
+        </EntityType>
+        <EntityType Name="Salas">
+          <Key>
+            <PropertyRef Name="SalaId" />
+          </Key>
+          <Property Name="SalaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BudynekId" Type="Int32" />
+          <Property Name="Numer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IloscMiejsca" Type="Int32" Nullable="false" />
+          <Property Name="TypSali" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Budyneks" Relationship="Self.FK_dbo_Salas_dbo_Budyneks_BudynekId" FromRole="Salas" ToRole="Budyneks" />
+          <NavigationProperty Name="SalaWynajmujacies" Relationship="Self.FK_dbo_SalaWynajmujacies_dbo_Salas_SalaId" FromRole="Salas" ToRole="SalaWynajmujacies" />
+        </EntityType>
+        <EntityType Name="SalaWynajmujacies">
+          <Key>
+            <PropertyRef Name="SalaId" />
+            <PropertyRef Name="WynajmujacyId" />
+            <PropertyRef Name="SalaWynajmujacyId" />
+          </Key>
+          <Property Name="SalaId" Type="Int32" Nullable="false" />
+          <Property Name="WynajmujacyId" Type="Int32" Nullable="false" />
+          <Property Name="DataPoczatkowa" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GodzinaPoczatkowa" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="GodzinaKoncowa" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="SalaWynajmujacyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Salas" Relationship="Self.FK_dbo_SalaWynajmujacies_dbo_Salas_SalaId" FromRole="SalaWynajmujacies" ToRole="Salas" />
+          <NavigationProperty Name="Wynajmujacies" Relationship="Self.FK_dbo_SalaWynajmujacies_dbo_Wynajmujacies_WynajmujacyId" FromRole="SalaWynajmujacies" ToRole="Wynajmujacies" />
+        </EntityType>
+        <EntityType Name="Wynajmujacies">
+          <Key>
+            <PropertyRef Name="WynajmujacyId" />
+          </Key>
+          <Property Name="WynajmujacyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Nazwisko" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Wydzial" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SalaWynajmujacies" Relationship="Self.FK_dbo_SalaWynajmujacies_dbo_Wynajmujacies_WynajmujacyId" FromRole="Wynajmujacies" ToRole="SalaWynajmujacies" />
+        </EntityType>
+        <Association Name="FK_dbo_Salas_dbo_Budyneks_BudynekId">
+          <End Role="Budyneks" Type="Self.Budyneks" Multiplicity="0..1" />
+          <End Role="Salas" Type="Self.Salas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Budyneks">
+              <PropertyRef Name="BudynekId" />
+            </Principal>
+            <Dependent Role="Salas">
+              <PropertyRef Name="BudynekId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SalaWynajmujacies_dbo_Salas_SalaId">
+          <End Role="Salas" Type="Self.Salas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SalaWynajmujacies" Type="Self.SalaWynajmujacies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salas">
+              <PropertyRef Name="SalaId" />
+            </Principal>
+            <Dependent Role="SalaWynajmujacies">
+              <PropertyRef Name="SalaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SalaWynajmujacies_dbo_Wynajmujacies_WynajmujacyId">
+          <End Role="Wynajmujacies" Type="Self.Wynajmujacies" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SalaWynajmujacies" Type="Self.SalaWynajmujacies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wynajmujacies">
+              <PropertyRef Name="WynajmujacyId" />
+            </Principal>
+            <Dependent Role="SalaWynajmujacies">
+              <PropertyRef Name="WynajmujacyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TIEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="Budyneks" EntityType="Self.Budyneks" />
+          <EntitySet Name="Salas" EntityType="Self.Salas" />
+          <EntitySet Name="SalaWynajmujacies" EntityType="Self.SalaWynajmujacies" />
+          <EntitySet Name="Wynajmujacies" EntityType="Self.Wynajmujacies" />
+          <AssociationSet Name="FK_dbo_Salas_dbo_Budyneks_BudynekId" Association="Self.FK_dbo_Salas_dbo_Budyneks_BudynekId">
+            <End Role="Budyneks" EntitySet="Budyneks" />
+            <End Role="Salas" EntitySet="Salas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SalaWynajmujacies_dbo_Salas_SalaId" Association="Self.FK_dbo_SalaWynajmujacies_dbo_Salas_SalaId">
+            <End Role="Salas" EntitySet="Salas" />
+            <End Role="SalaWynajmujacies" EntitySet="SalaWynajmujacies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SalaWynajmujacies_dbo_Wynajmujacies_WynajmujacyId" Association="Self.FK_dbo_SalaWynajmujacies_dbo_Wynajmujacies_WynajmujacyId">
+            <End Role="Wynajmujacies" EntitySet="Wynajmujacies" />
+            <End Role="SalaWynajmujacies" EntitySet="SalaWynajmujacies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TIModelStoreContainer" CdmEntityContainer="TIEntities2">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="TIModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budyneks">
+            <EntityTypeMapping TypeName="TIModel.Budyneks">
+              <MappingFragment StoreEntitySet="Budyneks">
+                <ScalarProperty Name="BudynekId" ColumnName="BudynekId" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salas">
+            <EntityTypeMapping TypeName="TIModel.Salas">
+              <MappingFragment StoreEntitySet="Salas">
+                <ScalarProperty Name="SalaId" ColumnName="SalaId" />
+                <ScalarProperty Name="BudynekId" ColumnName="BudynekId" />
+                <ScalarProperty Name="Numer" ColumnName="Numer" />
+                <ScalarProperty Name="IloscMiejsca" ColumnName="IloscMiejsca" />
+                <ScalarProperty Name="TypSali" ColumnName="TypSali" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaWynajmujacies">
+            <EntityTypeMapping TypeName="TIModel.SalaWynajmujacies">
+              <MappingFragment StoreEntitySet="SalaWynajmujacies">
+                <ScalarProperty Name="SalaId" ColumnName="SalaId" />
+                <ScalarProperty Name="WynajmujacyId" ColumnName="WynajmujacyId" />
+                <ScalarProperty Name="DataPoczatkowa" ColumnName="DataPoczatkowa" />
+                <ScalarProperty Name="GodzinaPoczatkowa" ColumnName="GodzinaPoczatkowa" />
+                <ScalarProperty Name="GodzinaKoncowa" ColumnName="GodzinaKoncowa" />
+                <ScalarProperty Name="SalaWynajmujacyId" ColumnName="SalaWynajmujacyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wynajmujacies">
+            <EntityTypeMapping TypeName="TIModel.Wynajmujacies">
+              <MappingFragment StoreEntitySet="Wynajmujacies">
+                <ScalarProperty Name="WynajmujacyId" ColumnName="WynajmujacyId" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Wydzial" ColumnName="Wydzial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

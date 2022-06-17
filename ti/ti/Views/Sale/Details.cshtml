@@ -1,0 +1,50 @@
+﻿@model ti.Models.DbModels.Sala
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Szczegóły sali</h2>
+
+<div>
+    <h4>Sala</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Budynek.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Budynek.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IloscMiejsca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IloscMiejsca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypSali)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypSali)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.SalaId }) |
+    @Html.ActionLink("Wróć do listy", "Index")
+</p>

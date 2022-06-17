@@ -1,0 +1,32 @@
+﻿@model ti.Models.DbModels.Budynek
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Usuwanie budynku</h2>
+
+<h3>Czy na pewno chcesz usunąć ten budynek?</h3>
+<div>
+    <h4>Budynek</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć do listy", "Index")
+        </div>
+    }
+</div>

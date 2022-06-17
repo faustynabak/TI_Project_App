@@ -1,0 +1,511 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ti</name>
+    </assembly>
+    <members>
+        <member name="T:ti.Controllers.BudynkiController">
+            <summary>
+            kontroler dla budynku
+            </summary>
+        </member>
+        <member name="M:ti.Controllers.BudynkiController.Index">
+            <summary>
+            Zwraca widok z listą budynków
+            </summary>
+            /// <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.BudynkiController.Details(System.Nullable{System.Int32})">
+            <summary> Zwraca widok ze szczegółami budynku</summary>
+            <param name="id">identyfikator</param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.BudynkiController.Create">
+            <summary>
+            zwraca widok do utworzenia nowego budynku
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.BudynkiController.Create(ti.Models.DbModels.Budynek)">
+            <summary>
+            Pobiera dane wpisane przez użytkownika i gdy nie wystąpią żadne błędy zapisuje nowy budynek
+            do bzy
+            </summary>
+            <param name="budynek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.BudynkiController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            zwraca widok do edycji budynku
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.BudynkiController.Edit(ti.Models.DbModels.Budynek)">
+            <summary>
+            zapisuje zmiany wprowadzone przez użytkownika
+            </summary>
+            <param name="budynek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.BudynkiController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            zwraca widok z pytaniem o potwierdzenie usuwania
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.BudynkiController.DeleteConfirmed(System.Int32)">
+            <summary>
+            Po potwierdzeniu usuwania usuwa dany budynek z bazy
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.HomeController.Index">
+            <summary>
+            Zwraca widok glowny
+            </summary>
+            /// <returns></returns>
+        </member>
+        <member name="T:ti.Controllers.SaleController">
+            <summary>
+            Kontroler dla sali
+            </summary>
+            <seealso cref="T:System.Web.Mvc.Controller" />
+        </member>
+        <member name="M:ti.Controllers.SaleController.Index">
+            <summary>
+            Zwraca widok z listą sal.
+            </summary>
+            /// <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SaleController.Details(System.Nullable{System.Int32})">
+            <summary> Zwraca widok ze szczegółami sali</summary>
+            <param name="id">identyfikator</param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SaleController.Create">
+            <summary>
+            zwraca widok do utworzenia nowej sali
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SaleController.Create(ti.Models.DbModels.Sala)">
+            <summary>
+            Pobiera dane wpisane przez użytkownika i gdy nie wystąpią żadne błędy zapisuje nowa sale
+            do bazy
+            </summary>
+            <param name="sala"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SaleController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            zwraca widok do edycji sal
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SaleController.Edit(ti.Models.DbModels.Sala)">
+            <summary>
+            zapisuje zmiany wprowadzone przez użytkownika
+            </summary>
+            <param name="sala"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SaleController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            zwraca widok z pytaniem o potwierdzenie usuwania
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:ti.Controllers.SaleController.DeleteConfirmed(System.Int32)">
+            <summary>
+            Po potwierdzeniu usuwania usuwa dana sale z bazy
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SaleController.Dispose(System.Boolean)">
+            <summary>
+            Zwalnia zasoby niezarządzane, a opcjonalnie także zarządzane.
+            </summary>
+            <param name="disposing">Wartość true, aby zwolnić zasoby zarządzane i niezarządzane, a wartość false, aby zwolnić tylko zasoby niezarządzane.</param>
+        </member>
+        <member name="T:ti.Controllers.SalaWynajmujacyController">
+            <summary>
+            Kontroler dla rezerwacji
+            </summary>
+            <seealso cref="T:System.Web.Mvc.Controller" />
+        </member>
+        <member name="M:ti.Controllers.SalaWynajmujacyController.Index">
+            <summary>
+            Zwraca widok z listą rezerwacji
+            </summary>
+            /// <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SalaWynajmujacyController.Details(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Zwraca widok ze szczegółąmi rezerwacji
+            </summary>
+            <param name="idSali"></param>
+            <param name="idWynajmujacego"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SalaWynajmujacyController.Create">
+            <summary>
+            Zwraca widok do utworzenia rezerwacji
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SalaWynajmujacyController.SprawdzRezerwacje(ti.Models.DbModels.SalaWynajmujacy)">
+            <summary>
+            Sprawdza rezerwacje
+            </summary>
+            <param name="salaWynajmujacy">The sala wynajmujacy.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SalaWynajmujacyController.Create(ti.Models.DbModels.SalaWynajmujacy)">
+            <summary>
+            Dodaje do bazy utworzona rezerwację
+            </summary>
+            <param name="salaWynajmujacy">The sala wynajmujacy.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SalaWynajmujacyController.Edit(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Zwraca widok do edycji rezerwacji
+            </summary>
+            <param name="idSali">The identifier sali.</param>
+            <param name="idWynajmujacego">The identifier wynajmujacego.</param>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SalaWynajmujacyController.Edit(ti.Models.DbModels.SalaWynajmujacy)">
+            <summary>
+            Edytuje rezerwacje w bazie
+            </summary>
+            <param name="salaWynajmujacy">The sala wynajmujacy.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SalaWynajmujacyController.Delete(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Zwraca widok z prosba o potwierdzenie usuniecia rezerwacji
+            </summary>
+            <param name="idSali">The identifier sali.</param>
+            <param name="idWynajmujacego">The identifier wynajmujacego.</param>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SalaWynajmujacyController.DeleteConfirmed(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Usuwa rezerwacje z bazy
+            </summary>
+            <param name="idSali">The identifier sali.</param>
+            <param name="idWynajmujacego">The identifier wynajmujacego.</param>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.SalaWynajmujacyController.Dispose(System.Boolean)">
+            <summary>
+            Zwalnia zasoby niezarządzane, a opcjonalnie także zarządzane
+            </summary>
+            <param name="disposing">Wartość true, aby zwolnić zasoby zarządzane i niezarządzane, a wartość false, aby zwolnić tylko zasoby niezarządzane.</param>
+        </member>
+        <member name="M:ti.Controllers.WynajmujacyController.Index">
+            <summary>
+            Zwraca widok z listą wynajmujacych
+            </summary>
+            /// <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.WynajmujacyController.Details(System.Nullable{System.Int32})">
+            <summary> Zwraca widok ze szczegółami wynajmujacych</summary>
+            <param name="id">identyfikator</param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.WynajmujacyController.Create">
+            <summary>
+            zwraca widok do utworzenia nowego wynajmujacego
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.WynajmujacyController.Create(ti.Models.DbModels.Wynajmujacy)">
+            <summary>
+             Pobiera dane wpisane przez użytkownika i gdy nie wystąpią żadne błędy zapisuje nowego wynajmujacego
+            do bazy
+            </summary>
+            <param name="wynajmujacy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.WynajmujacyController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            wraca widok do edycji wynajmujacego
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.WynajmujacyController.Edit(ti.Models.DbModels.Wynajmujacy)">
+            <summary>
+            zapisuje zmiany wprowadzone przez użytkownika
+            </summary>
+            <param name="wynajmujacy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.WynajmujacyController.Delete(System.Nullable{System.Int32})">
+            <summary>
+             zwraca widok z pytaniem o potwierdzenie usuwania
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ti.Controllers.WynajmujacyController.DeleteConfirmed(System.Int32)">
+            <summary>
+            Po potwierdzeniu usuwania usuwa danego wynajmujacego z bazy
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ti.Models.DatabaseContext">
+            <summary>
+            Klasa publiczna databeseContext dziedzicząca po DbContext
+            </summary>
+        </member>
+        <member name="P:ti.Models.DatabaseContext.Budynki">
+            <summary>
+            baza budynkow
+            </summary>
+        </member>
+        <member name="P:ti.Models.DatabaseContext.Sale">
+            <summary>
+            baza sal
+            </summary>
+        </member>
+        <member name="P:ti.Models.DatabaseContext.SalaWynajmujacy">
+            <summary>
+            baza wynajetych przez wynajmujacych sal
+            </summary>
+        </member>
+        <member name="P:ti.Models.DatabaseContext.Wynajmujacy">
+            <summary>
+             baza wynajmujacych
+            </summary>
+        </member>
+        <member name="T:ti.Models.DbModels.Budynek">
+            <summary>
+            Klasa budynek
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Budynek.BudynekId">
+            <summary>
+            id budynku wraz z metodami akcesorowymi
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Budynek.Nazwa">
+            <summary>
+            Nazwa budynku z metodami akcesorowymi
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Budynek.Sale">
+            <summary>
+            Lista sal z metodami akcesorowymi
+            </summary>
+        </member>
+        <member name="M:ti.Models.DbModels.Budynek.#ctor">
+            <summary>
+            Konstruktor nieparametryczny
+            </summary>
+        </member>
+        <member name="M:ti.Models.DbModels.Budynek.#ctor(System.Int32,System.String)">
+            <summary>
+            Konstruktor parametryczny
+            </summary>
+            <param name="BudyekId">id budynku</param>
+            <param name="nazwa">nazwa budynku</param>
+        </member>
+        <member name="M:ti.Models.DbModels.Budynek.ToString">
+            <summary>
+            Metoda tostring
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ti.Models.DbModels.EnumTypSali">
+            <summary>
+            Tworze typy dla sali
+            </summary>
+        </member>
+        <member name="T:ti.Models.DbModels.Sala">
+            <summary>
+            Klasa publiczna Sala
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Sala.SalaId">
+            <summary>
+            Id sali wraz z metodami akcesorowymi
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Sala.BudynekId">
+            <summary>
+            Id budynku  z metodami akcesorowymi
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Sala.Budynek">
+            <summary>
+            Budynek
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Sala.SalaWynajmujacyList">
+            <summary>
+            Lista wynajmujacych sale
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Sala.Numer">
+            <summary>
+            Numer sali
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Sala.TypSali">
+            <summary>
+            typ sali enumerowany
+            </summary>
+        </member>
+        <member name="M:ti.Models.DbModels.Sala.#ctor">
+            <summary>
+            konstruktor nieparametryczny
+            </summary>
+        </member>
+        <member name="M:ti.Models.DbModels.Sala.#ctor(System.Int32,System.Int32,System.String,System.Int32,ti.Models.DbModels.EnumTypSali)">
+            <summary>
+            Kontruktor parametryczny
+            </summary>
+            <param name="budynekId">id budynku</param>
+            <param name="SalaId">id sali</param>
+            <param name="numer">numer sali</param>
+            <param name="iloscMiejsca">ilosc miejsc w sali</param>
+            <param name="typSali">typ sali enum</param>
+        </member>
+        <member name="M:ti.Models.DbModels.Sala.ToString">
+            <summary>
+            Metoda to string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ti.Models.DbModels.Wynajmujacy">
+            <summary>
+            Klasa wynajmujacy
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Wynajmujacy.WynajmujacyId">
+            <summary>
+            Id wynajmujacego 
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Wynajmujacy.Imie">
+            <summary>
+            Imie wynajmujacego
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Wynajmujacy.Nazwisko">
+            <summary>
+            Nazwisko wynajmujacego
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Wynajmujacy.Wydzial">
+            <summary>
+            Wydzial
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.Wynajmujacy.SalaWynajmujacyList">
+            <summary>
+            Kolekcja wynajetych sal
+            </summary>
+        </member>
+        <member name="M:ti.Models.DbModels.Wynajmujacy.#ctor">
+            <summary>
+            Konstruktor nieparametryczny
+            </summary>
+        </member>
+        <member name="M:ti.Models.DbModels.Wynajmujacy.#ctor(System.Int32,System.String,System.String,ti.Models.DbModels.EnumWydzial)">
+            <summary>
+            Konstruktor parametryczny
+            </summary>
+            <param name="id">id</param>
+            <param name="imie">imie</param>
+            <param name="nazwisko">nazwisko</param>
+            <param name="wydzial">wydzial</param>
+        </member>
+        <member name="M:ti.Models.DbModels.Wynajmujacy.ToString">
+            <summary>
+            Metoda tostring
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ti.Models.DbModels.SalaWynajmujacy">
+            <summary>
+            Klasa publiczna SalaWynajmujacy
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.SalaWynajmujacy.SalaWynajmujacyId">
+            <summary>
+            Id wynajmujecego i sali
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.SalaWynajmujacy.SalaId">
+            <summary>
+            Id sali
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.SalaWynajmujacy.WynajmujacyId">
+            <summary>
+            Id wynajmujacego
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.SalaWynajmujacy.Wynajmujacy">
+            <summary>
+            Wynajmujacy
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.SalaWynajmujacy.Sala">
+            <summary>
+            Sala
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.SalaWynajmujacy.DataPoczatkowa">
+            <summary>
+            Data wynajecia
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.SalaWynajmujacy.GodzinaPoczatkowa">
+            <summary>
+            Godzina rozpoczecia
+            </summary>
+        </member>
+        <member name="P:ti.Models.DbModels.SalaWynajmujacy.GodzinaKoncowa">
+            <summary>
+            Godzina zakonczenia
+            </summary>
+        </member>
+        <member name="M:ti.Models.DbModels.SalaWynajmujacy.#ctor">
+            <summary>
+            konstruktor nieparametryczny
+            </summary>
+        </member>
+        <member name="M:ti.Models.DbModels.SalaWynajmujacy.#ctor(System.Int32,System.Int32,System.Int32,System.DateTime,System.TimeSpan,System.TimeSpan)">
+            <summary>
+            Konstruktor parametryczny
+            </summary>
+            <param name="id">id</param>
+            <param name="wynajmujacy">wynajmujacy</param>
+            <param name="sala">sala</param>
+            <param name="dataPoczatkowa">data</param>
+            <param name="godzinaPoczatkowa">godzina rozpoczecia</param>
+            <param name="godzinaKoncowa">godzina zakonczenia</param>
+        </member>
+        <member name="M:ti.Models.DbModels.SalaWynajmujacy.ToString">
+            <summary>
+            Metoda tostring
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

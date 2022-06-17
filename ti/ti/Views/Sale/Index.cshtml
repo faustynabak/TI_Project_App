@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ti.Models.DbModels.Sala>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista sal</h2>
+
+<p>
+    @Html.ActionLink("Dodaj nową salę", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Budynek.Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IloscMiejsca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypSali)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Budynek.Nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IloscMiejsca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypSali)
+        </td>
+        <td>
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.SalaId }) |
+            @Html.ActionLink("Detale", "Details", new { id=item.SalaId }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.SalaId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Rezerwacja sal w budynku</title>
+    <script src="https://kit.fontawesome.com/673cb1935f.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Styles.Render("~/Content/Style.css")
+    @Scripts.Render("~/Scripts/Skrypty.js")
+    
+
+
+</head>
+<body>
+    <div class="container body-content">
+        @Html.Partial("_menuTop")
+        @Scripts.Render("~/Scripts/PowolnePrzewijanie.js")
+        @RenderBody()
+
+        @Html.Partial("_footer")
+
+
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

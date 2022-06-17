@@ -1,0 +1,26 @@
+﻿@model ti.Models.DbModels.Budynek
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Szczegóły budynku</h2>
+
+<div>
+    <h4>Budynek</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.BudynekId }) |
+    @Html.ActionLink("Wróc do listy", "Index")
+</p>

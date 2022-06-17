@@ -1,0 +1,58 @@
+﻿@model ti.Models.DbModels.SalaWynajmujacy
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Szczegóły rezerwacji</h2> 
+<div>
+    <h4>SalaWynajmujacy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SalaId)
+        </dt>
+
+        <dd>
+            
+            @Html.DisplayFor(model => model.Sala.Numer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wynajmujacy.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wynajmujacy.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPoczatkowa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPoczatkowa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GodzinaPoczatkowa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GodzinaPoczatkowa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GodzinaKoncowa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GodzinaKoncowa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { idSali = Model.SalaId, idWynajmujacego = Model.WynajmujacyId, id = Model.SalaWynajmujacyId }) |
+    @Html.ActionLink("Wróć do listy", "Index")
+</p>

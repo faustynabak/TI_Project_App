@@ -1,0 +1,64 @@
+﻿@model ti.Models.DbModels.SalaWynajmujacy
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Usuwanie rezerwacji</h2>
+
+<h3>Czy na pewno chcesz usunąć tę rezerwację?</h3>
+<div>
+    <h4>Rezerwacja</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sala.Numer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sala.Numer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wynajmujacy.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wynajmujacy.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPoczatkowa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPoczatkowa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GodzinaPoczatkowa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GodzinaPoczatkowa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GodzinaKoncowa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GodzinaKoncowa)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć do listy", "Index")
+        </div>
+    }
+</div>
